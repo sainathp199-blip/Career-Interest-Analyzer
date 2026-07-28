@@ -16,3 +16,4 @@ A web application developed using HTML, CSS, and JavaScript to analyze student c
 
 ## Author
 sainath patil
+Updated project documentation.
