@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalized Web Career Interest Analyzer</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:400px;
+            margin:40px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:darkblue;
+        }
+
+        input{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:blue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:darkblue;
+        }
+
+        #output{
+            margin-top:20px;
+            color:green;
+            font-weight:bold;
+        }
+
+        ul{
+            color:purple;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Career Interest Analyzer</h2>
+
+<form>
+
+Name:
+<input type="text" id="name" required>
+
+Roll Number:
+<input type="text" id="roll" pattern="[A-Za-z0-9]{6}" required>
+
+Career Interest:
+<input type="text" id="career" pattern="[A-Za-z ]+" required>
+
+JavaScript Rating (1-10):
+<input type="number" id="rating" min="1" max="10" required>
+
+Projects Completed:
+<input type="number" id="project" min="0" required>
+
+<button type="button" onclick="careerReady()">Check Result</button>
+
+</form>
+
+<h3 id="output"></h3>
+
+<h3>Technologies to Learn</h3>
+
+<ul id="techList"></ul>
+
+</div>
+
+<script>
+
+function careerReady(){
+
+let rating = document.getElementById("rating").value;
+let project = document.getElementById("project").value;
+
+if(rating>=8 && project>=5){
+document.getElementById("output").innerHTML="Career Ready";
+}
+else if(rating>=5 && project>=2){
+document.getElementById("output").innerHTML="Almost Ready";
+}
+else{
+document.getElementById("output").innerHTML="Need More Practice";
+}
+
+let tech=["React","Node.js","MongoDB"];
+
+let data="";
+
+tech.forEach(function(item){
+data += "<li>"+item+"</li>";
+});
+
+document.getElementById("techList").innerHTML=data;
+
+}
+
+</script>
+
+</body>
+</html>
